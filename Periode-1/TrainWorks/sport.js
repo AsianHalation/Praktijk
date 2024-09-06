@@ -31,3 +31,4 @@
   --cmplz_slider_active_color: #f04b1e;
   --cmplz_slider_inactive_color: #666666;
   --cmplz_slider_bullet_color: #ffffff;
+}
