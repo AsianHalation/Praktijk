@@ -1,10 +1,5 @@
 <?php
-    if (isset($_POST['count'])) {
-        $num1 = $_POST['num1'];
-        $num2 = $_POST['num2'];
-        $result = $num1-$num2;
-}
-
+        include "functions.php";
         include "nav.php";
     ?>
 
@@ -18,20 +13,18 @@
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
- 
-
 
     <main>
         <form method="POST">
-            <legend>Hoe ongezond ben jij?</legend>
+            <legend>Bereken hier je eetpatroon</legend>
 
             <label for="leeftijd">Wat is uw leeftijd?</label>
             <input type="text" name="leeftijd">
 
-            <label for="num1">Dagelijkse inname</label>
+            <label for="num1">Dagelijkse inname in Kcal</label>
             <input type="text" class="num" name="num1">
 
-            <label for="num2">Dagelijkse verbranding</label>
+            <label for="num2">Dagelijkse verbranding in Kcal</label>
             <input type="text" class="num" name="num2">
 
             <input type="submit" name=count value="bereken!">

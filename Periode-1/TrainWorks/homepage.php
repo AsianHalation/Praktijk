@@ -1,3 +1,7 @@
+<?php
+    include "nav.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +12,9 @@
     <script src="sport.js"></script>
 </head>
 <body>
-    <div class="navbar">
-
-</div>
 
     <main>
-        <img src="chad.jpg">
+        
     </main>
 </body>
 </html>
