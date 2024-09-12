@@ -6,23 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Training Center</title>
-    <link rel="stylesheet" href="sport.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
     <?php
         if (isset($_POST['count'])) {
             $num1 = $_POST['num1'];
             $num2 = $_POST['num2'];
-            $result = $_POST['result'];
                 $result = $num1-$num2;
         }
+
+        include("nav.php");
     ?>
 
     <div class="navbar">
-        <a img src=".."></a>
-        <a href="https://trainstation073.nl/">homepage</a>
-        <a href="xx">rekenmachine</a>
-    <div>
+        <img src="logo.png"></img>
+        <a href="homepage.php">homepage</a>
+        <a href="index.php">rekenmachine</a>
+    </div>
 
 
 
@@ -39,8 +41,20 @@
             <label for="num2">Dagelijkse verbranding</label>
             <input type="text" class="num" name="num2">
 
-            <input type="submit" name= value="bereken!">
-        </form>
+            <input type="submit" name=count value="bereken!">
+
+            </form>
+            
+            <?php
+                if (isset($_POST['count'])) {
+                    echo $result . "<p>Dagelijkse inname</p>";
+                    if ($result < 2000) {
+                        echo "<img src='chad.jpg'>";
+                    } else {
+                        echo "<img src='wojak.jpg'>";
+                    }
+                }
+            ?>
     </main>
 </body>
 </html>
