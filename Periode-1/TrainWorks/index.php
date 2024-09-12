@@ -1,4 +1,12 @@
+<?php
+    if (isset($_POST['count'])) {
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];
+        $result = $num1-$num2;
+}
 
+        include "nav.php";
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,26 +14,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Training Center</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
-    <?php
-        if (isset($_POST['count'])) {
-            $num1 = $_POST['num1'];
-            $num2 = $_POST['num2'];
-                $result = $num1-$num2;
-        }
-
-        include("nav.php");
-    ?>
-
-    <div class="navbar">
-        <img src="logo.png"></img>
-        <a href="homepage.php">homepage</a>
-        <a href="index.php">rekenmachine</a>
-    </div>
-
+ 
 
 
     <main>
