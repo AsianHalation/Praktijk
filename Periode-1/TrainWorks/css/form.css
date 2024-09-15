@@ -1,26 +1,66 @@
+/* Reset default margins and paddings */
+body, h1, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the calculator */
 main {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    background-color: brown;
+    text-align: center;
+    margin-top: 50px; /* Adjust margin-top as needed */
+    min-height: 50vh;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    margin: 100px auto;
-    padding: 40px;
-    width: 70%;
-    min-width: 300px;
-    border-radius: 26px;
+/* Style the calculator form */
+main form {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input {
+main form input[type=text], form select, form input[type=submit] {
+    margin: 5px;
     padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    font-family: Raleway;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+main form input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    width: 95%;
+}
+
+main form input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    main {
+        margin-top: 20px;
+    }
+    form {
+        width: 80%;
+    }
+}
+
+/* Optional: Adjust styles for form elements on focus or hover */
+form input[type=text]:focus, form select:focus, form input[type=submit]:hover {
+    outline: none;
+    border-color: #4CAF50; /* Change to desired color */
 }
