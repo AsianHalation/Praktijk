@@ -1,0 +1,118 @@
+/**
+    General styling for the website
+ */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/**
+    Styling for navbar
+ */
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    height: 200px;
+}
+
+header .logo {
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    float: left;
+    margin-left: 20px;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .contact-info {
+    float: right;
+}
+
+
+/**
+    Styling for footer
+ */
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 0;
+}
+
+footer .about,
+footer .footer-links,
+footer .social-media,
+footer .newsletter,
+footer .contact-info {
+    margin-bottom: 20px;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .social-media a {
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .newsletter form {
+    display: flex;
+    justify-content: center;
+}
+
+footer .newsletter form input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+footer .newsletter form button {
+    padding: 5px 10px;
+    background: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+footer .contact-info {
+    text-align: center;
+}
