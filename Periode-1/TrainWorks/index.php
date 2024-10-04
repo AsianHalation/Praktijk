@@ -14,7 +14,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="homepage.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="rekenmachine.php">Rekenmachine</a></li>
                 </ul>
             </nav>

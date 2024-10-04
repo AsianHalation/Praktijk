@@ -1,17 +1,16 @@
-/* Reset default margins and paddings */
 body, h1, form {
     margin: 0;
     padding: 0;
 }
 
-/* Center the calculator */
+/* form */
 main {
     text-align: center;
-    margin-top: 50px; /* Adjust margin-top as needed */
+    margin-top: 50px;
     min-height: 50vh;
 }
 
-/* Style the calculator form */
+/* form inhoud styling*/
 main form {
     display: inline-block;
     background-color: #f0f0f0;
@@ -49,7 +48,7 @@ h2 {
     color: #333;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 600px) {
     main {
         margin-top: 20px;
@@ -59,8 +58,8 @@ h2 {
     }
 }
 
-/* Optional: Adjust styles for form elements on focus or hover */
+/* hover en focus styling */
 form input[type=text]:focus, form select:focus, form input[type=submit]:hover {
     outline: none;
-    border-color: #4CAF50; /* Change to desired color */
+    border-color: #4CAF50;
 }
