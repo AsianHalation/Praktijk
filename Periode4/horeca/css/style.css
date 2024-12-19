@@ -38,30 +38,20 @@ nav a {
     font-weight: bold;
     padding: 5px 10px;
     transition: background-color 0.3s;
+    border-radius: 20px;
 }
 
 nav a:hover {
     background-color: #005fa3; /* Slightly darker blue on hover */
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 /* Content container styles */
-.content {
+.main {
     padding-top: 50px;
     display: flex;
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */
     height: calc(100vh - 50px); /* Adjust height to fill the screen minus the navbar */
     background-color: #f4f4f4; /* Light gray background */
-}
-
-.container {
-    width: 80%; /* Adjust width as necessary */
-    max-width: 1200px; /* Prevent it from becoming too wide on large screens */
-    height: 60vh;
-    background-color: white; /* White background for content */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-    border-radius: 40px; /* Rounded corners */
-    text-align: center; /* Center the text within the content */
 }

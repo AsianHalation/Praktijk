@@ -5,10 +5,18 @@
     include "../includes/nav.php";
 ?>
 
-<div class="content">
+<style>
+    <?php
+        include "../css/homepage.css";
+    ?>
+</style>
+
+<div class="main">
     <div class="container">
-        <h1>Jesse</h1>
-        <p>jesse</p>
+        <div class="content">
+            <h1>Jesse</h1>
+            <p>jesse</p>
+        </div>
     </div>
 </div>
 
