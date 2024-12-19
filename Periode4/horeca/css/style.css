@@ -1,0 +1,67 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navbar styles */
+.navigation {
+    background-color: #0077cc; /* Matches the blue color in the image */
+    position: absolute; /* Make the navbar position absolute */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Make it span the full width */
+    padding: 10px 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+nav {
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-evenly; /* Centers the navbar items horizontally */
+    gap: 20px; /* Adds spacing between navbar links */
+}
+
+nav a {
+    display:flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #005fa3; /* Slightly darker blue on hover */
+    border-radius: 5px;
+}
+
+/* Content container styles */
+.content {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    height: calc(100vh - 50px); /* Adjust height to fill the screen minus the navbar */
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+.container {
+    width: 80%; /* Adjust width as necessary */
+    max-width: 1200px; /* Prevent it from becoming too wide on large screens */
+    height: 60vh;
+    background-color: white; /* White background for content */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    border-radius: 40px; /* Rounded corners */
+    text-align: center; /* Center the text within the content */
+}
