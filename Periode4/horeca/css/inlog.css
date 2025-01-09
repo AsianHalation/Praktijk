@@ -25,18 +25,21 @@ form label {
     font-size: 16px;
     font-weight: bold;
     color: #333; /* Dark gray for better readability */
+    padding-left: 10%;
 }
 
 /* Input field styles */
 form input[type="text"],
 form input[type="password"] {
-    width: 100%;
+    width: 80%;
     padding: 10px 15px;
     font-size: 14px;
     border: 1px solid #ddd; /* Subtle border */
     border-radius: 5px; /* Rounded corners for inputs */
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
     transition: border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-self: center;
 }
 
 form input[type="text"]:focus,
@@ -48,15 +51,19 @@ form input[type="password"]:focus {
 
 /* Submit button styles */
 form input[type="submit"] {
+    display: flex;
+    align-self: center;
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
     color: white;
+    margin-top: 10px;
     background-color: #0077cc; /* Blue background */
     border: none;
     border-radius: 5px; /* Rounded corners */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    width: 80%;
 }
 
 form input[type="submit"]:hover {

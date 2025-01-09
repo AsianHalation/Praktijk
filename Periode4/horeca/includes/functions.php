@@ -4,7 +4,7 @@
 function logincheck($username, $password, $conn) {
     // Prepare en execute de SQL query om de inlognaam van de user tabel in de database op te halen
     $stmt = $conn->prepare("SELECT * FROM student WHERE inlognaam = :inlognaam AND wachtwoord = :password");
-    $stmt->bindParam(':inlognaam', $username); //verbind variabele met de data die is gegeven
+    $stmt->bindParam(':inlognaam', $username); //verbind variabele met de data in de database;
     $stmt->bindParam(':password', $password);
     $stmt->execute();
 
@@ -15,5 +15,19 @@ function logincheck($username, $password, $conn) {
         return true;
     }
     return false;
+}
+
+
+function insertDiner($conn, $titel, $omschrijving, $starttijd, $eindtijd, $locatie) {
+    // Create the INSERT query without sanitizing inputs
+    $insert = "INSERT INTO diner (titel, omschrijving, starttijd, eindtijd, locatie) 
+            VALUES ('$titel', '$omschrijving', '$starttijd', '$eindtijd', '$locatie')";
+
+    // Execute the query and return the result
+    if ($conn->query($insert) === TRUE) {
+        return "New record created successfully.";
+    } else {
+        return "Error: " . $insert . "<br>" . $conn->error;
+    }
 }
 ?>

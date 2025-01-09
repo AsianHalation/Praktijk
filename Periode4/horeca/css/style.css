@@ -48,7 +48,7 @@ nav a:hover {
 
 /* Content container styles */
 .main {
-    padding-top: 50px;
+    padding: 50px;
     display: flex;
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */

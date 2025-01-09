@@ -16,6 +16,9 @@
         <div class="content">
             <h1>Jesse</h1>
             <p>jesse</p>
+<!--Plan voor een foreach table met elke container een titel van de planning
+als je erop klikt verwijst het naar een nieuwe pagina in de main container met alle inhoud -->
+
         </div>
     </div>
 </div>

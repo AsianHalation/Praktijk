@@ -1,10 +1,23 @@
 <?php
     session_start();
     include "../includes/db.php";
+    include "../includes/functions.php";
     include "../includes/header.php";
     include "../includes/nav.php";
 
-    if 
+    //Form check als de form is ingevuld
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
+    $username = $_POST["inlognaam"];
+    $password = $_POST["wachtwoord"];
+
+    // Valideer login
+    if (logincheck($username, $password, $conn)) {
+        //als er succesvol is ingelogd dan verwijst het naar de homepagina
+        header('location: ../website/index.php');
+    } else {
+        $jesse = "Jesse is aangekomen";
+    }
+}
 ?>
 
 <style>
@@ -24,6 +37,11 @@
 
                 <input type="submit" name="login" value="tweaking">
             </form>
+            <?php
+                    if (!empty($jesse)) {
+                        echo "<p style='color: red;'>$jesse</p>";
+                    }
+            ?>
     </div>
 </div>
 
