@@ -19,46 +19,46 @@
             <?php
                 //conditie als er is ingelogd + juiste username
                 if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) {
-                    echo "<h2>Tweaking met , {$_SESSION['inlognaam']}!</h2>";
+                    echo "<h2>Beste , {$_SESSION['inlognaam']}!</h2>";
                 
                     $query = "SELECT * FROM diner WHERE dinerID <> 'locatie' ";
                     $result = $conn->query($query);
                 
                     echo "<table>";
-                    echo "<thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Titel</th>
-                                <th>omschrijving</th>
-                                <th>starttijd</th>
-                                <th>Eindtijd</th>
-                                <th>Locatie</th>
-                                <th>Actie</th>
-                            </tr>
-                        </thead>";
+                        echo "<thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Titel</th>
+                                    <th>omschrijving</th>
+                                    <th>starttijd</th>
+                                    <th>Eindtijd</th>
+                                    <th>Locatie</th>
+                                    <th>Actie</th>
+                                </tr>
+                            </thead>";
                     
-                    echo "<tbody>";
-                        while ($row = $result->fetch()) {
-                            echo "<tr>";
-                            echo "<td>" . $row["dinerID"] . "</td>";
-                            echo "<td>" . $row["titel"] . "</td>";
-                            echo "<td>" . $row["omschrijving"] . "</td>";
-                            echo "<td>" . $row["starttijd"] . "</td>";
-                            echo "<td>" . $row["eindtijd"] . "</td>";
-                            echo "<td>" . $row["locatie"] . "</td>";
-                            echo '<td>
-                                <a class="btn_update" href="../website/update.php?id=' . $row['dinerID'] . '">Edit</a>
-                                <a class="btn_delete" href="../includes/delete.php?id=' . $row['dinerID'] . '">Delete</a>
-                            </td>';
-                            echo "</tr>";
-                        }
-                    
-                } else {
-                    // Als er niet is ingelogd stuur het terug naar homepagina
-                    header("Location: ../website/index.php");
-                }
-                    echo "</tbody>";
+                        echo "<tbody>";
+                            while ($row = $result->fetch()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["dinerID"] . "</td>";
+                                echo "<td>" . $row["titel"] . "</td>";
+                                echo "<td>" . $row["omschrijving"] . "</td>";
+                                echo "<td>" . $row["starttijd"] . "</td>";
+                                echo "<td>" . $row["eindtijd"] . "</td>";
+                                echo "<td>" . $row["locatie"] . "</td>";
+                                echo '<td>
+                                    <a class="btn_update" href="../website/update.php?dinerID=' . $row['dinerID'] . '">Edit</a>
+                                    <a class="btn_delete" href="../includes/delete.php?dinerID=' . $row['dinerID'] . '">Delete</a>
+                                </td>';
+                                echo "</tr>";
+                            }
+                        echo "</tbody>";
                     echo "</table>";
+
+                    } else {
+                        // Als er niet is ingelogd stuur het terug naar homepagina
+                        header("Location: ../website/index.php");
+                    }
             ?>
     </div>
 </div>

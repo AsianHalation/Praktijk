@@ -14,7 +14,14 @@
         $locatie = $_POST["locatie"];
     
         // Call the function to insert the data
-        echo insertDiner($conn, $titel, $omschrijving, $starttijd, $eindtijd, $locatie);
+        $result = insertDiner($conn, $titel, $omschrijving, $starttijd, $eindtijd, $locatie);
+
+    // If insertion is successful, display an alert
+    if ($result) { // Assuming insertDiner() returns a truthy value on success
+        echo "<script>alert('lekker bezig pik');</script>";
+    } else {
+        echo "<script>alert('Bloons');</script>";
+    }
     }
 
     if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == false) {
