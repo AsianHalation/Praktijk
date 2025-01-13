@@ -10,3 +10,28 @@
     justify-content: center;
     align-items: center;
 }
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Ensures rows are separated */
+    border-spacing: 0 10px; /* Adds spacing between rows */
+}
+table tbody tr {
+    background-color: #0077cc; /* Row background color */
+    color: white; /* Text color for contrast */
+    border-radius: 5px; /* Rounded corners for rows */
+    overflow: hidden; /* Ensures rounded corners apply correctly */
+}
+table tbody tr td {
+    padding: 10px 15px; /* Adds padding to cells */
+}
+table tbody tr:hover {
+    background-color: #005fa3; /* Hover effect for rows */
+}
+table a {
+    color: white; /* Link color */
+    text-decoration: none; /* Removes underline from links */
+}
+table a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}

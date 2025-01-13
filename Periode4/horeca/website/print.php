@@ -30,7 +30,8 @@
                                     <th>ID</th>
                                     <th>Titel</th>
                                     <th>omschrijving</th>
-                                    <th>starttijd</th>
+                                    <th>Datum</th>
+                                    <th>Starttijd</th>
                                     <th>Eindtijd</th>
                                     <th>Locatie</th>
                                     <th>Actie</th>
@@ -43,6 +44,7 @@
                                 echo "<td>" . $row["dinerID"] . "</td>";
                                 echo "<td>" . $row["titel"] . "</td>";
                                 echo "<td>" . $row["omschrijving"] . "</td>";
+                                echo "<td>" . $row["datum"] . "</td>";
                                 echo "<td>" . $row["starttijd"] . "</td>";
                                 echo "<td>" . $row["eindtijd"] . "</td>";
                                 echo "<td>" . $row["locatie"] . "</td>";

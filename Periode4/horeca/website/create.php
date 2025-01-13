@@ -9,12 +9,15 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nieuw_entry"])) {
         $titel = $_POST["titel"];
         $omschrijving = $_POST["omschrijving"];
+        $raw_date = $_POST['datum']; // Assuming 'datum' comes from your form
         $starttijd = $_POST["begintijd"]; // Change form field name to match 'startmoment'
         $eindtijd = $_POST["eindtijd"];  // Change form field name to match 'eindmoment'
         $locatie = $_POST["locatie"];
+        
+        $formatted_date = date('Y-m-d', strtotime($raw_date)); // Format it as YYYY-MM-DD
     
         // Call the function to insert the data
-        $result = insertDiner($conn, $titel, $omschrijving, $starttijd, $eindtijd, $locatie);
+        $result = insertDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie);
 
     // If insertion is successful, display an alert
     if ($result) { // Assuming insertDiner() returns a truthy value on success
@@ -43,6 +46,9 @@
 
                 <label for="omschrijving">Omschrijving</label>
                 <input type="text" name="omschrijving">
+
+                <label for="datum">Datum</label>
+                <input type="date" name="datum">
 
                 <label for="begintijd">Begintijd</label>
                 <input type="time" name="begintijd">

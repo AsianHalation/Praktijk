@@ -20,9 +20,9 @@ if (isset($_GET['dinerID'])) {
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {
-            $_SESSION['message'] = "Address deleted successfully!";
+            echo "<script>alert('Bloons!');</script>";
         } else {
-            $_SESSION['message'] = "Failed to delete address!";
+            echo "<script>alert('Jesse');</script>";
         }
 
         // Redirect back to the index page
