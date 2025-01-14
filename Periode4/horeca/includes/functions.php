@@ -30,20 +30,19 @@ function insertDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, 
     }
 }
 
-function updateDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie) {
-    $dinerID = $_GET["dinerID"];
-    $stmt = $conn->prepare("UPDATE diner SET titel = ?, omschrijving = ?, datum = ?, starttijd = ?, eindtijd = ?, locatie = ? WHERE dinerID = ?");
-    $stmt->bind_param($titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie, $dinerID);
+//function updateDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie) {
+    //$dinerID = $_GET["dinerID"];
+    //$result
 
 
-    return true;
-}
+    //eturn true;
+//}
 
-function printResult($conn, $selectID) {
+//function printResult($conn, $selectID) {
 
-    $query = "SELECT * FROM diner WHERE dinerID = " . $selectID;
-    $result = $conn->query($query);
+    //$query = "SELECT * FROM diner WHERE dinerID = " . $selectID;
+    //$result = $conn->query($query);
 
-    return $result;
-}
+    //return $result;
+//}
 ?>

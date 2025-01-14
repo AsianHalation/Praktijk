@@ -1,18 +1,31 @@
 <?php
     session_start();
     include "../includes/db.php";
-    include "../includes/functions.php";
+    include_once "../includes/functions.php";
     include "../includes/header.php";
     include "../includes/nav.php";
     //via GET methode de ID oppakken van de entry in de tabel
-    if (!isset($_GET["dinerID"])) {
-        echo "<script>alert('Diner ID is missing');</script>";
-        exit;
+
+    function printResult($conn, $selectID) {
+        $query = "SELECT * FROM diner WHERE dinerID = :dinerID";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':dinerID', $selectID, PDO::PARAM_INT); // Use PDO::PARAM_INT for integers
+        $stmt->execute();
+        return $stmt;
     }
 
 
-    $result = printResult($conn, $_GET["dinerID"]);
-    $row = $result->fetch();
+    if (isset($_GET["dinerID"])) {
+        $result = printResult($conn, $_GET["dinerID"]);
+        $row = $result->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
+        if ($row) {
+            // Process the row
+        } else {
+            echo "No diner found with the given ID.";
+        }
+    } else {
+        echo "dinerID is not set.";
+    }
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_entry"])) {
@@ -21,18 +34,43 @@
         $starttijd = $_POST["starttijd"];
         $eindtijd = $_POST["eindtijd"];
         $locatie = $_POST["locatie"];
-        $dinerID = $_GET["dinerID"];
-
-        $raw_date = $_POST['datum']; // Assuming 'datum' comes from your form
-        $formatted_date = date('Y-m-d', strtotime($raw_date)); // Format it as YYYY-MM-DD
-
-        $diner = updateDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie);
-        
+    
+        if (!isset($_GET["dinerID"]) || !is_numeric($_GET["dinerID"])) {
+            die("Invalid diner ID");
+        }
+        $dinerID = (int) $_GET["dinerID"];
+    
+        $raw_date = $_POST['datum'];
+        if (!strtotime($raw_date)) {
+            die("Invalid date format");
+        }
+        $formatted_date = date('Y-m-d', strtotime($raw_date));
+    
+        $sql = "UPDATE diner 
+                SET titel = :titel,
+                    omschrijving = :omschrijving,
+                    datum = :datum, 
+                    starttijd = :starttijd, 
+                    eindtijd = :eindtijd, 
+                    locatie = :locatie
+                WHERE dinerID = :dinerID";
+    
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':titel', $titel);
+        $stmt->bindParam(':omschrijving', $omschrijving);
+        $stmt->bindParam(':datum', $formatted_date);
+        $stmt->bindParam(':starttijd', $starttijd);
+        $stmt->bindParam(':eindtijd', $eindtijd);
+        $stmt->bindParam(':locatie', $locatie);
+        $stmt->bindParam(':dinerID', $dinerID, PDO::PARAM_INT);
+    
+        $diner = $stmt->execute();
+    
         if ($diner) {
-            echo "<script>alert('Interpolis glashelder');</script>";
+            echo "<script>alert('Update successful'); window.location.href='../website/print.php';</script>";
         } else {
-            echo "<script>alert('Bloons');</script>";
-        }        
+            echo "<script>alert('Update failed');</script>";
+        }
     }
 ?>
 <style>
@@ -43,7 +81,7 @@
 
     <div class="main">
         <div class="container">
-        <form method="POST" action="update.php?dinerID=<?= $dinerID; ?>">  
+        <form method="POST">  
                 <label for="titel">Titel</label>
                 <input type="text" name="titel" value="<?php echo $row["titel"] ?>">
 
