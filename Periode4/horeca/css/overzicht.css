@@ -1,0 +1,13 @@
+.container {
+    width: 80%; /* Adjust width as necessary */
+    max-width: 1200px; /* Prevent it from becoming too wide on large screens */
+    height: 60vh;
+    background-color: white; /* White background for content */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    border-radius: 40px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

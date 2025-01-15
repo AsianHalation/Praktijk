@@ -30,19 +30,11 @@ function insertDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, 
     }
 }
 
-//function updateDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie) {
-    //$dinerID = $_GET["dinerID"];
-    //$result
-
-
-    //eturn true;
-//}
-
-//function printResult($conn, $selectID) {
-
-    //$query = "SELECT * FROM diner WHERE dinerID = " . $selectID;
-    //$result = $conn->query($query);
-
-    //return $result;
-//}
+function printResult($conn, $selectID) {
+    $query = "SELECT * FROM diner WHERE dinerID = :dinerID";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':dinerID', $selectID, PDO::PARAM_INT); // Use PDO::PARAM_INT for integers
+    $stmt->execute();
+    return $stmt;
+}
 ?>

@@ -1,19 +1,10 @@
 <?php
     session_start();
     include "../includes/db.php";
-    include_once "../includes/functions.php";
+    include "../includes/functions.php";
     include "../includes/header.php";
     include "../includes/nav.php";
     //via GET methode de ID oppakken van de entry in de tabel
-
-    function printResult($conn, $selectID) {
-        $query = "SELECT * FROM diner WHERE dinerID = :dinerID";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':dinerID', $selectID, PDO::PARAM_INT); // Use PDO::PARAM_INT for integers
-        $stmt->execute();
-        return $stmt;
-    }
-
 
     if (isset($_GET["dinerID"])) {
         $result = printResult($conn, $_GET["dinerID"]);
@@ -40,11 +31,11 @@
         }
         $dinerID = (int) $_GET["dinerID"];
     
-        $raw_date = $_POST['datum'];
-        if (!strtotime($raw_date)) {
+        $omgekeerde_datum = $_POST['datum'];
+        if (!strtotime($omgekeerde_datum)) {
             die("Invalid date format");
         }
-        $formatted_date = date('Y-m-d', strtotime($raw_date));
+        $formatted_date = date('Y-m-d', strtotime($omgekeerde_datum));
     
         $sql = "UPDATE diner 
                 SET titel = :titel,
