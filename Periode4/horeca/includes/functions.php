@@ -18,13 +18,13 @@ function logincheck($username, $password, $conn) {
 }
 
 function insertDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, $eindtijd, $locatie) {
-    // Create the INSERT query without sanitizing inputs
+    //insert query
     $insert = "INSERT INTO diner (titel, omschrijving, datum, starttijd, eindtijd, locatie) 
             VALUES ('$titel', '$omschrijving', '$formatted_date', '$starttijd', '$eindtijd', '$locatie')";
 
-    // Execute the query and return the result
+    //voer query uit en return result
     if ($conn->query($insert) === TRUE) {
-        alert("New record created successfully.");
+        alert("nieuwe data ingevoerd");
     } else {
         return "Error: " . $insert . "<br>" . $conn->error;
     }
@@ -33,7 +33,7 @@ function insertDiner($conn, $titel, $omschrijving, $formatted_date, $starttijd, 
 function printResult($conn, $selectID) {
     $query = "SELECT * FROM diner WHERE dinerID = :dinerID";
     $stmt = $conn->prepare($query);
-    $stmt->bindParam(':dinerID', $selectID, PDO::PARAM_INT); // Use PDO::PARAM_INT for integers
+    $stmt->bindParam(':dinerID', $selectID, PDO::PARAM_INT); //PDO voor integer uit te halen
     $stmt->execute();
     return $stmt;
 }

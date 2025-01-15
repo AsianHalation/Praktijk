@@ -7,14 +7,14 @@
 
     if (isset($_GET["dinerID"])) {
         $result = printResult($conn, $_GET["dinerID"]);
-        $row = $result->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
+        $row = $result->fetch(PDO::FETCH_ASSOC); //pak data uit een array
         if ($row) {
-            // Process the row
+            //error proces maken voor debug
         } else {
-            echo "No diner found with the given ID.";
+            echo "geen ID gevonden";
         }
     } else {
-        echo "dinerID is not set.";
+        echo "geen ID instantie";
     }
 ?>
 

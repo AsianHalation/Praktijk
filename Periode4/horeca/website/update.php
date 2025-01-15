@@ -15,11 +15,12 @@
             echo "No diner found with the given ID.";
         }
     } else {
-        echo "dinerID is not set.";
+        echo "geen ID instantie";
     }
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_entry"])) {
+        //variabele aanmaken bij data uit de form
         $titel = $_POST["titel"];
         $omschrijving = $_POST["omschrijving"];
         $starttijd = $_POST["starttijd"];
@@ -58,9 +59,9 @@
         $diner = $stmt->execute();
     
         if ($diner) {
-            echo "<script>alert('Update successful'); window.location.href='../website/print.php';</script>";
+            echo "<script>alert('Bewerking geslaagd'); window.location.href='../website/print.php';</script>";
         } else {
-            echo "<script>alert('Update failed');</script>";
+            echo "<script>alert('Foutmelding 404');</script>";
         }
     }
 ?>
