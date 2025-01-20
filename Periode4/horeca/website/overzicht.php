@@ -9,7 +9,7 @@
         $result = printResult($conn, $_GET["dinerID"]);
         $row = $result->fetch(PDO::FETCH_ASSOC); //pak data uit een array
         if ($row) {
-            //error proces maken voor debug
+            //error maken voor debug
         } else {
             echo "geen ID gevonden";
         }
@@ -24,25 +24,37 @@
 
     <div class="main">
         <div class="container">
-            <div class="content">
-                <h2>Wat gaan we kokkerellen</h2>
-                <p><?php echo $row['omschrijving']?></p>
-            </div>
-
-            <div class="content">
-                <h2>Wanneer is het?</h2>
-                <p><?php echo $row['datum']?></p>
-            </div>
-
-            <div class="content">
-                <h2>Tijdsslot</h2>
-                <div class="tijd">
-                    <p>van</p>
+            <div class="totale_content">
+                <div class="content">
+                    <h2>Wat gaan we kokkerellen</h2>
+                    <p><?php echo $row['omschrijving']?></p>
                 </div>
-            </div>
 
-            <div class="content">
-                <h2>Waar is het?</h2>
+                <div class="content">
+                    <h2>Wanneer is het?</h2>
+                    <p>
+                        <?php 
+                        $originalDate = $row['datum']; 
+                        echo DateTime::createFromFormat('Y-m-d', $originalDate)->format('d-m-Y'); 
+                        ?>
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h2>Tijdsslot</h2>
+                    <div class="tijd">
+                        <p>van <?php echo $row['starttijd']?> tot <?php echo $row['eindtijd']?></p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h2>Waar is het?</h2>
+                    <p><?php echo $row['locatie']?></p>
+                </div>
+            <div>
+
+            <div class="foto">
+
             </div>
         </div>
     </div>

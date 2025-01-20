@@ -13,10 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     // Valideer login
     if (logincheck($username, $password, $conn)) {
         //als er succesvol is ingelogd dan verwijst het naar de homepagina
-        header('location: ../website/index.php');
+        header("Locaton: ../website/index.php");
     } else {
         $jesse = "Jesse is aangekomen";
     }
+}
+
+if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) {
+    header("Location: ../website/index.php");
+    //conditie als er is ingelogd dat de user niet naar de inlogpagina terecht kan
 }
 ?>
 
@@ -35,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
                 <label for="wachtwoord">Wachtwoord</label>
                 <input type="password" name="wachtwoord">
 
-                <input type="submit" name="login" value="tweaking">
+                <input type="submit" name="login" value="log in">
             </form>
             <?php
                     if (!empty($jesse)) {

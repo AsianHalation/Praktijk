@@ -26,20 +26,17 @@
         echo "<script>alert('Bloons');</script>";
     }
     }
-
-    if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == false) {
-        header("Location: ../website/index.php");
-    }
 ?>
 
 <style>
     <?php
-        include "../css/inlog.css"
+        include "../css/create.css"
     ?>
 </style>
 
     <div class="main">
         <div class="container">
+            <?php     if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) { ?>
             <form method="POST">  
                 <label for="titel">Titel</label>
                 <input type="text" name="titel">
@@ -61,6 +58,9 @@
 
                 <input type="submit" name="nieuw_entry" value="opslaan">
             </form>
+            <?php } else {
+                header("Location: ../website/index.php");
+                } ?>
         </div>
     </div>
 

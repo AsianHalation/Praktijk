@@ -1,7 +1,7 @@
 <main>
     <div class="navigation">
         <nav>
-            <h2>Jesse</h2>
+            <h2>KW1C</h2>
             <?php
                 //hier print andere links als er is ingelogd, overzicht om te wijzigen en uitloggen etc.
                 if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) {

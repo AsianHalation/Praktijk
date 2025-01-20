@@ -73,27 +73,32 @@
 
     <div class="main">
         <div class="container">
-        <form method="POST">  
-                <label for="titel">Titel</label>
-                <input type="text" name="titel" value="<?php echo $row["titel"] ?>">
+            <?php if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) { ?>
+                <form method="POST">
+                    <label for="titel">Titel</label>
+                    <input type="text" name="titel" value="<?php echo $row["titel"] ?>">
 
-                <label for="omschrijving">Omschrijving</label>
-                <input type="text" name="omschrijving" value="<?php echo $row["omschrijving"] ?>">
+                    <label for="omschrijving">Omschrijving</label>
+                    <input type="text" name="omschrijving" value="<?php echo $row["omschrijving"] ?>">
 
-                <label for="datum">Datum</label>
-                <input type="date" name="datum" value="<?php echo $row["datum"] ?>">
+                    <label for="datum">Datum</label>
+                    <input type="date" name="datum" value="<?php echo $row["datum"] ?>">
 
-                <label for="starttijd">Starttijd</label>
-                <input type="time" name="starttijd" value="<?php echo $row["starttijd"] ?>">
+                    <label for="starttijd">Starttijd</label>
+                    <input type="time" name="starttijd" value="<?php echo $row["starttijd"] ?>">
 
-                <label for="eindtijd">Eindtijd</label>
-                <input type="time" name="eindtijd" value="<?php echo $row["eindtijd"] ?>">
+                    <label for="eindtijd">Eindtijd</label>
+                    <input type="time" name="eindtijd" value="<?php echo $row["eindtijd"] ?>">
 
-                <label for="locatie">Locatie</label>
-                <input type="text" name="locatie" value="<?php echo $row["locatie"] ?>">
+                    <label for="locatie">Locatie</label>
+                    <input type="text" name="locatie" value="<?php echo $row["locatie"] ?>">
 
-                <input type="submit" name="update_entry" value="opslaan">
-            </form>
+                    <input type="submit" name="update_entry" value="opslaan">
+                </form>
+            <?php } else {
+                header("Location: ../website/index.php");
+                }
+                ?>
         </div>
     </div>
 

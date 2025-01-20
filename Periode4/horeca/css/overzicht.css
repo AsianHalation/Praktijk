@@ -9,5 +9,63 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+
+}
+
+.totale_content {
+    display: flex;
     flex-direction: column;
+}
+
+/* content inhoud */
+.content {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content:last-child {
+    border-bottom: none;
+}
+
+/* Headings */
+h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Time-specific styling */
+.tijd {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px 20px;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }
