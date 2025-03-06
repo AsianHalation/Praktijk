@@ -5,6 +5,7 @@
     include "../includes/functions.php";
     include "../includes/header.php";
     include "../includes/nav.php";
+    include "../includes/zoek.js";
 
     //links in zetten in elke entry zodat het wordt gelinkt naar de bijhorende pagina'
     //zet hier de query voor elke functionaliteit = Create, Read, Update, Delete
@@ -23,8 +24,12 @@
                 
                     $query = "SELECT * FROM diner WHERE dinerID <> 'locatie' ";
                     $result = $conn->query($query);
-                
-                    echo "<table>";
+                    
+                    ?>
+                        <input type="text" id="zoekbalk" placeholder="Search..." onkeyup="filterTable()">
+                    <?php
+
+                    echo "<table id='dinerTable'>";
                         echo "<thead>
                                 <tr>
                                     <th>ID</th>

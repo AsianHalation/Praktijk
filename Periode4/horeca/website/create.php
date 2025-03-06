@@ -21,9 +21,9 @@
 
     // If insertion is successful, display an alert
     if ($result) { // Assuming insertDiner() returns a truthy value on success
-        echo "<script>alert('lekker bezig pik');</script>";
+        echo "<script>alert('aangemaakt');</script>";
     } else {
-        echo "<script>alert('Bloons');</script>";
+        echo "<script>alert('sorry');</script>";
     }
     }
 ?>

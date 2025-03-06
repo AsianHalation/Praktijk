@@ -1,7 +1,8 @@
         </main>
 
         <footer>
-            <h2><?php echo $_SESSION['inlognaam'];?></h2>
+            <h2><?php 
+            ?></h2>
         </footer>
     </body>
 </html>

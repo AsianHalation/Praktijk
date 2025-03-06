@@ -16,6 +16,7 @@
 .totale_content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 /* content inhoud */

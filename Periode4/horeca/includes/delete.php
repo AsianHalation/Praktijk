@@ -4,13 +4,6 @@ session_start(); // Ensure session is started for using $_SESSION
 if (isset($_GET['dinerID'])) {
     $id = $_GET['dinerID'];
 
-    // Validate and sanitize the ID
-    if (!filter_var($id, FILTER_VALIDATE_INT)) {
-        $_SESSION['message'] = "Invalid ID provided!";
-        header('location: ../website/print.php');
-        exit();
-    }
-
     try {
         // Reuse the existing database connection
         require_once '../includes/db.php'; // Update this path as needed
@@ -35,8 +28,7 @@ if (isset($_GET['dinerID'])) {
         exit();
     }
 } else {
-    // Redirect if no ID is provided
-    $_SESSION['message'] = "No ID provided!";
+    //geen ID header
     header('location: ../website/print.php');
     exit();
 }

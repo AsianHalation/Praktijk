@@ -4,7 +4,7 @@
     include "../includes/header.php";
     include "../includes/nav.php";
 
-    $query = "SELECT * FROM diner WHERE dinerID <> 'titel'";
+    $query = "SELECT * FROM diner";
     $result = $conn->query($query);
 ?>
 

@@ -13,22 +13,26 @@
 }
 
 table {
-    width: 100%;
+    width: 100%; /* Ensures table takes up the full width of the container */
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
     text-align: left;
     border-radius: 10px;
+    overflow: hidden; /* To keep border-radius effect consistent */
+    table-layout: auto; /* Allows cells to adjust dynamically */
 }
 
 thead tr {
-    background-color:cadetblue;
+    background-color: cadetblue;
+    color: white; /* Ensures text is visible against the background */
     border-bottom: 1px solid #dddddd;
 }
 
 th, td {
     padding: 12px 15px;
     border: 1px solid #dddddd;
+    word-wrap: break-word; /* Prevents content from overflowing in cells */
 }
 
 tbody tr {
@@ -43,22 +47,35 @@ tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
 
-.btn_update {
-    background-color: #2196F3;
+.btn_update, .btn_delete {
+    background-color: #2196F3; /* Blue for update */
     color: white;
     padding: 6px 10px;
     text-decoration: none;
     border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap; /* Prevents text wrap */
 }
 
 .btn_delete {
-    background-color: #f44336;
-    color: white;
-    padding: 6px 10px;
-    text-decoration: none;
-    border-radius: 4px;
+    background-color: #f44336; /* Red for delete */
 }
 
 .btn_update:hover, .btn_delete:hover {
     opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    th, td {
+        padding: 8px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .btn_update, .btn_delete {
+        padding: 4px 8px; /* Smaller buttons on smaller screens */
+    }
 }
